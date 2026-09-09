@@ -1,0 +1,13 @@
+services:
+  grok-bot:
+    build: .
+    container_name: grok-vps-bot
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8080:8080"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
