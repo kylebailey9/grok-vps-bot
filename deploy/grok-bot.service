@@ -1,0 +1,16 @@
+[Unit]
+Description=Grok VPS Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/grok-vps-bot
+EnvironmentFile=/opt/grok-vps-bot/.env
+ExecStart=/opt/grok-vps-bot/.venv/bin/python -m app.main
+Restart=always
+RestartSec=5
+User=grokbot
+
+[Install]
+WantedBy=multi-user.target
